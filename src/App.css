@@ -1,3 +1,22 @@
+.navBar {
+  display: flex;  
+  flex-flow: row nowrap;
+  justify-content: space-around;
+}
+#box-list{
+  width: 60%;
+}
+.navList{
+  list-style: none;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-evenly;
+  margin: 7% 0%;
+}
+.nav-logoBoutique{
+  width: 150px;
+  height: 150px;
+}
 .App {
   text-align: center;
 }
