@@ -1,14 +1,20 @@
 // Css Styles
 import './App.css';
 // Nav Bar
-import NavBar from './components/NavBar'
-
+import NavBar from './components/navBar/NavBar'
+// Cart Container
+import CartItemContainer from './components/cart/cartItemContainer';
 
 function App() {
   return (
-    <div className="App">
-      <NavBar/>
-    </div>
+    <>
+      <header className='App'>
+        <NavBar/>
+      </header>
+      <main>
+        <CartItemContainer/>
+      </main>
+    </>
   );
 }
 
