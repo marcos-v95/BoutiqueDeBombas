@@ -1,7 +1,7 @@
 // logo 
 import logoBoutique from '../../assets/images/logoBoutique.jpeg';
 // Cart widget
-import CartWidget from '../cart/cartWidget';
+import CartWidget from '../cart/CartWidget';
 
 function NavBar(){
   return (

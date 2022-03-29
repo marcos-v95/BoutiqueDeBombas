@@ -1,3 +1,4 @@
+// Esta importado en la navbar
 import logoCartWidget from '../../assets/images/logoCartWidget.png'
 
 function CartWidget() {

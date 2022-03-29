@@ -1,9 +1,10 @@
+import React from 'react';
 // Css Styles
 import './App.css';
 // Nav Bar
 import NavBar from './components/navBar/NavBar'
 // Cart Container
-import CartItemContainer from './components/cart/cartItemContainer';
+import ItemListContainer from './components/cart/ItemListContainer';
 
 function App() {
   return (
@@ -12,7 +13,7 @@ function App() {
         <NavBar/>
       </header>
       <main>
-        <CartItemContainer/>
+        <ItemListContainer/>
       </main>
     </>
   );
