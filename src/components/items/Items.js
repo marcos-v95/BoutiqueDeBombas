@@ -1,10 +1,13 @@
 import React from "react";
-
+// Item Count
+import ItemCount from '../itemCount/ItemCount';
 
 export default function Items({products}) {
-  
+  // provisionally expressed here
+  const onAdd=(count)=>(alert (`Agregaste ${count} productos al carrito`));
+
   return (
-    <div>
+    <div id="item-container">
       {products.map((product)=>{
         const {id,title,image,price,stock}=product
         return(
@@ -12,9 +15,8 @@ export default function Items({products}) {
             <h1>{title}</h1>
             <img src={image} alt="prod"></img>
             <p>Precio: {price}</p>
-            <p>Stock disponible: {stock}</p>
-          </div>
-        )
+            <ItemCount stock={stock} onAdd={onAdd} />
+          </div>)
       })}
     </div>
     

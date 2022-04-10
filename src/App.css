@@ -36,6 +36,11 @@
 #contador{
   text-align: center;
 }
+#item-container{
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-evenly;
+}
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;

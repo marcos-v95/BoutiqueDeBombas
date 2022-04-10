@@ -17,7 +17,7 @@ export default function ItemsList({mock}){
     getProducts().then((data)=>{
       setProducts(data)
     })
-  })
+  },[])
   
   return(
    <Items products={products}/>
