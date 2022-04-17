@@ -18,27 +18,8 @@ export default function ItemsList({mock}){
       setProducts(data)
     })
   },[])
-  
+  console.log(products)
   return(
    <Items products={products}/>
-  )
+   )
 }
-
-
-
-
-
-
-
-
-
-
- // <div>
-    //   {products.map(()=>{
-    //     return(
-         
-    //         <Items data={products}/>
-          
-    //     )
-    //   })}
-    // </div>

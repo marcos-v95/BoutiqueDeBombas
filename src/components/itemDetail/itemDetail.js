@@ -1,12 +1,14 @@
+// React
 import React from "react";
 
 export default function ItemDetail ({product}){
+  const {title,image,price,stock}=product
   return(
     <div>
-      {console.log(product)}
-      <h1>{product.title}</h1>
-      <img src={product.image} alt="prod"></img>
-      <p>Precio: {product.price}</p>
+      <h1>{title}</h1>
+      <img src={image} alt="prod"></img>
+      <p>Stock disponible: {stock}</p>
+      <p>Precio: {price}</p>
     </div>
   )
 }

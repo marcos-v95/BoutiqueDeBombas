@@ -1,30 +1,31 @@
+// React
 import React,{useState,useEffect} from "react";
+import { useParams } from "react-router-dom";
+
 // Mock of products
 import mockProd from "../mockProducts/mockProducts";
 // Item Detail
 import ItemDetail from "../itemDetail/itemDetail";
 
 function ItemDetailContainer (){
-  const [product,setProduct]=useState([])
+  
+  const {id}=useParams();
+  const [product,setProduct]=useState({})
 
-  const getMock= ()=>{
-    return new Promise((resolve,reject)=>{
-      setTimeout(()=>{
-        resolve (mockProd.find((prod)=>prod.id===1))
-      },2000)
-    })
+  const filterProductById=(array,id)=>{
+    return(
+      array.map((product)=>{
+        if(product.id==id){
+          return(setProduct(product),console.log(product))
+        }
+      })
+    )
   }
-  const getProduct= async ()=>{
-    try{
-      const result= await getMock();
-      setProduct(result)
-    }catch (error){
-      console.log (error)
-    }
-  }
+
   useEffect(()=>{
-    getProduct()},[]
+    filterProductById(mockProd,id)},[id]
   )
+  
   return(
     <ItemDetail product={product}/>
   )

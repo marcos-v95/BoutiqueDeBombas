@@ -7,7 +7,7 @@ import mockProd from "../mockProducts/mockProducts";
 function ItemListContainer(){
   return(
     <div>
-      <h1>Lista de productos</h1>
+      <h2>Lista de productos</h2>
       <ItemsList mock={mockProd}/>
     </div>
   )

@@ -1,4 +1,6 @@
+// React
 import React from "react";
+import {Link} from 'react-router-dom';
 // Item Count
 import ItemCount from '../itemCount/ItemCount';
 
@@ -9,10 +11,10 @@ export default function Items({products}) {
   return (
     <div id="item-container">
       {products.map((product)=>{
-        const {id,title,image,price,stock}=product
+        const {id,category,title,image,price,stock}=product
         return(
           <div key={id}>
-            <h1>{title}</h1>
+            <h1><Link to={`/tienda/${category}/${id}`}>{title}</Link></h1>
             <img src={image} alt="prod"></img>
             <p>Precio: {price}</p>
             <ItemCount stock={stock} onAdd={onAdd} />
