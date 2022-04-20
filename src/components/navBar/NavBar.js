@@ -1,9 +1,10 @@
 // React
+import React from 'react';
 import {Link} from 'react-router-dom';
 // logo 
 import logoBoutique from '../../assets/images/logoBoutique.jpeg';
 // Cart widget
-import CartWidget from '../cart/CartWidget';
+import CartWidget from '../cart/cartWidget';
 
 function NavBar(){
   return (

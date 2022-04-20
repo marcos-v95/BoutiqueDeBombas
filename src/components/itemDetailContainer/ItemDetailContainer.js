@@ -16,7 +16,7 @@ function ItemDetailContainer (){
     return(
       array.map((product)=>{
         if(product.id==id){
-          return(setProduct(product),console.log(product))
+          return(setProduct(product))
         }
       })
     )
@@ -27,7 +27,7 @@ function ItemDetailContainer (){
   )
   
   return(
-    <ItemDetail product={product}/>
+    <ItemDetail productDetail={product}/>
   )
 }
 export default ItemDetailContainer;

@@ -17,7 +17,7 @@ export default function Items({products}) {
             <h1><Link to={`/tienda/${category}/${id}`}>{title}</Link></h1>
             <img src={image} alt="prod"></img>
             <p>Precio: {price}</p>
-            <ItemCount stock={stock} onAdd={onAdd} />
+            {/* <ItemCount stock={stock} onAdd={onAdd} /> */}
           </div>)
       })}
     </div>
