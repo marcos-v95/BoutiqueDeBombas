@@ -4,7 +4,7 @@ import {Link} from 'react-router-dom';
 // logo 
 import logoBoutique from '../../assets/images/logoBoutique.jpeg';
 // Cart widget
-import CartWidget from '../cart/cartWidget';
+import CartWidget from '../cartWidget/CartWidget';
 
 function NavBar(){
   return (
@@ -34,7 +34,7 @@ function NavBar(){
             <button className='nav-button'><Link to={'/contacto'}>Contacto</Link></button>
           </li>
           <li>
-            <button id='cart-button'><Link to={'/tienda'}><CartWidget/></Link></button>
+            <button id='cart-button'><Link to={'/cart'}><CartWidget/></Link></button>
           </li>
         </ul>
       </div>

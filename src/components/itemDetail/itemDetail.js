@@ -1,39 +1,44 @@
 // React
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 // Counter
 import ItemCount from "../itemCount/ItemCount";
+// Cart Context
+import CartContext from "../../context/CartContext";
 
 
 export default function ItemDetail ({productDetail}){
-  const {title,image,price,stock}=productDetail
+  // ----- destructuring -----
+  const {title,image,price,stock}=productDetail;
   
-  const [count,setCount]= useState(0); //estado del contador
-  const [readyToAdd, setReadyToAdd]=useState(false) //estado booleano 
+  const [count,setCount]= useState(0); // ----- counter state -----
+  const [readyToAdd, setReadyToAdd]=useState(false); // ----- boolean state -----
+  const {cartProducts, addProductToCard}=useContext(CartContext); // ----- context state -----
   
-  // funciones del contador
-  const addStock= ()=>{ if(count<stock) setCount(count+1) }
-  const removeStock= ()=>{ if(count>0) setCount(count-1) }
-  const onAdd=()=>{
-    setReadyToAdd(!readyToAdd)
+  // ----- counter functions -----
+  function addStock() {if (count<stock) setCount(count+1)};
+  function subtractStock() {if (count>0) setCount(count-1)}; 
+  function onAdd(){
+    alert (`Agregaste: ${count} productos al carrito`)
+    addProductToCard({...productDetail,quantity:count})
+    setReadyToAdd(readyToAdd)
   }; 
- 
+  // ------------------------------
   return(
     <div>
       <h1>{title}</h1>
       <img src={image} alt="prod"></img>
-      {/* condicion de renderizado */}
+      <p>Stock disponible: {stock-count}</p>
+      <p>Precio: {price}</p>
+      <p>Cantidad seleccionada: {count}</p>
+      {/* render condition */}
       {readyToAdd ? (
         <div>
-          <p>Agregaste: {count} productos al carrito</p>
           <button> <Link to={'/cart'}>Terminar compra</Link></button>
         </div>
       ):(
         <>
-          <p>Stock disponible: {stock-count}</p>
-          <p>Precio: {price}</p>
-          <p>Cantidad seleccionada: {count}</p>
-          <ItemCount onAdd={onAdd} addStock={addStock} removeStock={removeStock} count={count}stock={stock}/>
+          <ItemCount onAdd={onAdd} addStock={addStock} subtractStock={subtractStock} count={count}stock={stock}/>
         </>
       )}
     </div>
