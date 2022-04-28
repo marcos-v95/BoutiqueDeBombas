@@ -8,8 +8,7 @@ import CartContext from "../../context/CartContext";
 
 
 export default function ItemDetail ({productDetail}){
-  // ----- destructuring -----
-  const {title,image,price,stock}=productDetail;
+  const {title,image,price,stock}=productDetail; // ----- destructuring -----
   
   const [count,setCount]= useState(0); // ----- counter state -----
   const [readyToAdd, setReadyToAdd]=useState(false); // ----- boolean state -----
@@ -21,7 +20,7 @@ export default function ItemDetail ({productDetail}){
   function onAdd(){
     alert (`Agregaste: ${count} productos al carrito`)
     addProductToCard({...productDetail,quantity:count})
-    setReadyToAdd(readyToAdd)
+    setReadyToAdd(!readyToAdd)
   }; 
   // ------------------------------
   return(

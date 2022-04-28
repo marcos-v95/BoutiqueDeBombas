@@ -11,27 +11,29 @@ function CartProvider ({children}){
       return cartProducts.some((p)=>p.id===id)
     }
     if(isInCart(product.id)){
-      
       const prod=cartProducts.find((p)=>p.id===product.id)
       prod.quantity= product.quantity + prod.quantity
 
-      setCartProducts([...cartProducts]);console.log("true")
+      setCartProducts([...cartProducts]);
+      
     }else{
-      setCartProducts(cartProducts=>[...cartProducts,product]);console.log("false")
+      setCartProducts(cartProducts=>[...cartProducts,product]);
     }
   }
 
-  function clear(){
+  function clearCart(){
     setCartProducts([])
   }
-  
+
   function removeItem(id){
     setCartProducts(cartProducts.filter((p)=>p.id!==id))
   }
-  console.log(cartProducts)
+  
   const toolKit={
     cartProducts,
-    addProductToCard
+    addProductToCard,
+    removeItem,
+    clearCart
   }
   return(
     <CartContext.Provider value={toolKit}>

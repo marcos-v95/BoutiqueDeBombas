@@ -12,6 +12,7 @@ import ItemCategoryContainer from './components/itemCategoryContainer/ItemCatego
 import HomePage from './pages/Home';
 import NosotrosPage from './pages/Nosotros';
 import TiendaPage from './pages/Tienda';
+import Cart from './components/cart/Cart';
 import ContactoPage from './pages/Contacto';
 import GaleriaPage from './pages/Galeria';
 // Context
@@ -29,6 +30,7 @@ function App() {
             <Route path='/tienda' element={<TiendaPage/>}/>
             <Route path='/tienda/:category' element={<ItemCategoryContainer/>}/>
             <Route path='/tienda/:category/:id' element={<ItemDetailContainer/>}/>
+            <Route path='/cart' element={<Cart/>}/>
             <Route path='/galeria' element={<GaleriaPage/>}/>
             <Route path='/contacto' element={<ContactoPage/>}/>
           </Routes>

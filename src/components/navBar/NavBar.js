@@ -1,12 +1,15 @@
 // React
-import React from 'react';
+import React,{useContext} from 'react';
 import {Link} from 'react-router-dom';
 // logo 
 import logoBoutique from '../../assets/images/logoBoutique.jpeg';
 // Cart widget
 import CartWidget from '../cartWidget/CartWidget';
+// Cart context
+import CartContext from '../../context/CartContext';
 
 function NavBar(){
+  const {cartProducts}=useContext(CartContext)
   return (
     <nav className="navBar">
       <div>
@@ -33,9 +36,14 @@ function NavBar(){
           <li>
             <button className='nav-button'><Link to={'/contacto'}>Contacto</Link></button>
           </li>
-          <li>
-            <button id='cart-button'><Link to={'/cart'}><CartWidget/></Link></button>
-          </li>
+          {(cartProducts.length>0) && 
+            <li>
+              <button id='cart-button'>
+                <Link to={'/cart'}><CartWidget/></Link>
+                <p>{cartProducts.length}</p>
+              </button>
+            </li>
+          }
         </ul>
       </div>
     </nav>
