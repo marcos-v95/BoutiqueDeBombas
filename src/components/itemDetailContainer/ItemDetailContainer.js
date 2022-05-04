@@ -1,29 +1,33 @@
 // React
 import React,{useState,useEffect} from "react";
 import { useParams } from "react-router-dom";
-
-// Mock of products
-import mockProd from "../mockProducts/mockProducts";
 // Item Detail
 import ItemDetail from "../itemDetail/itemDetail";
+// Firebase
+import dataBase from "../../utils/firebaseConfig";
+import {doc,getDoc} from "firebase/firestore"; //product in collection
+
 
 function ItemDetailContainer (){
   
   const {id}=useParams();
   const [product,setProduct]=useState({})
 
-  const filterProductById=(array,id)=>{
-    return(
-      array.map((product)=>{
-        if(product.id==id){
-          return(setProduct(product))
-        }
-      })
-    )
+  const filterProductById= async ()=>{
+    const docRef= doc(dataBase,'products', id);
+    const docSnap=await getDoc(docRef);
+
+    if (docSnap.exists()){
+      console.log("docInfo",docSnap.data())
+      let product=docSnap.data();
+      product.id=docSnap.id;
+      setProduct(product)
+    }
+    
   }
 
   useEffect(()=>{
-    filterProductById(mockProd,id)},[id]
+    filterProductById()},[id]
   )
   
   return(
