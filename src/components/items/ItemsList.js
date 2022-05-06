@@ -4,15 +4,15 @@ import React,{useState,useEffect} from "react";
 import Items from './Items'; 
 // Firebase
 import dataBase from '../../utils/firebaseConfig';
-import {collection,getDocs} from 'firebase/firestore'; // products in collection
+import {collection,getDocs} from 'firebase/firestore';
 
 export default function ItemsList(){
 
   const[products,setProducts]=useState([])
 
   const getProducts= async ()=>{
-    const collectionRef= collection(dataBase,'products');
-    const collectionSnap= await getDocs(collectionRef); //docs from the firestore collection
+    const collectionRef= collection(dataBase,'products'); //collection 'products' from firestore
+    const collectionSnap= await getDocs(collectionRef); //documents in 'products' collection
     const listProducts= collectionSnap.docs.map((doc)=>{
       let product=doc.data()
       product.id=doc.id
@@ -25,7 +25,7 @@ export default function ItemsList(){
       setProducts(data)
     })
   },[])
-  console.log(products)
+  
   return(
    <Items products={products}/>
    )

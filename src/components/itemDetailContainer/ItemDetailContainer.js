@@ -5,7 +5,7 @@ import { useParams } from "react-router-dom";
 import ItemDetail from "../itemDetail/itemDetail";
 // Firebase
 import dataBase from "../../utils/firebaseConfig";
-import {doc,getDoc} from "firebase/firestore"; //product in collection
+import {doc,getDoc} from "firebase/firestore"; 
 
 
 function ItemDetailContainer (){

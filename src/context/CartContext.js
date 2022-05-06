@@ -5,6 +5,7 @@ const CartContext = createContext();
 function CartProvider ({children}){
 
   const [cartProducts, setCartProducts]=useState([]); // contains the products added to the cart
+  const [totalPrice, setTotalPrice]=useState(0) 
 
   function addProductToCard(product){
     const isInCart=(id)=> {
@@ -19,18 +20,21 @@ function CartProvider ({children}){
     }else{
       setCartProducts(cartProducts=>[...cartProducts,product]);
     }
+    setTotalPrice(totalPrice+product.price*product.quantity)
   }
 
   function clearCart(){
     setCartProducts([])
   }
 
-  function removeItem(id){
-    setCartProducts(cartProducts.filter((p)=>p.id!==id))
+  function removeItem(cartProduct){
+    setCartProducts(cartProducts.filter((p)=>p.id!==cartProduct.id))
+    setTotalPrice(totalPrice-cartProduct.price*cartProduct.quantity)
   }
   
   const toolKit={
     cartProducts,
+    totalPrice,
     addProductToCard,
     removeItem,
     clearCart
