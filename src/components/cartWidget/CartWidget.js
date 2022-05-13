@@ -1,9 +1,9 @@
-// Esta importado en la navbar
-import logoCartWidget from '../../assets/images/logoCartWidget.png'
+// Material Ui
+import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 
 function CartWidget() {
   return (
-    <img src={logoCartWidget} id='cart-img' alt='cart'/>
+    <ShoppingCartIcon id="cartLogo"/>
   )
 }
 

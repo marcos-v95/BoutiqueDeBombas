@@ -1,22 +1,331 @@
-.navBar {
-  display: flex;  
-  flex-flow: row nowrap;
-  justify-content: space-around;
+body{
+  background-color: #ece3e3
 }
+/* ------NavBar ------ */
+#navContainer{
+  background-color: #d2bccb;
+}
+.navBar {
+  width: 100%;
+  justify-content: space-evenly;
+}
+.navList{
+  padding: 0.5rem 1rem;
+  font-family: 'Indie Flower', cursive;
+  font-weight: bold;
+  font-size: 25px;
+  color: #000000d9;
+  letter-spacing: 2px;
+  text-shadow: 2px 2px 3px grey;
+  text-decoration: none;
+  transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out;
+}
+.navList:hover{
+  color: whitesmoke;
+  text-shadow: 2px 2px 3px #000000fd;
+}
+.nav-logoBoutique{
+  width: 13rem;
+}
+#dropContainer{
+  display: flex;
+}
+.dropdown-menu.show {
+  display: flex!important;
+  transform: translate(-10%, -20%);
+  background-color: transparent;
+  border: none;
+}
+.dropList{
+  padding: 0px 10px;
+  font-family: 'Indie Flower', cursive;
+  font-weight: bold;
+  font-size: 15px;
+  color: #000000d9;
+  letter-spacing: 2px;
+  text-shadow: 2px 2px 3px grey;
+  text-decoration: none;
+}
+.dropList:hover{
+  color: whitesmoke;
+  text-shadow: 2px 2px 3px #000000fd;
+}
+#cartWidget{
+  display: flex;
+}
+#cartWidget>p{
+  margin: 0px;
+  font-size: 1.2em;
+  padding-left: 3px;
+}
+#cartLogo{
+  font-size: 2em;
+  color: #000000d9;
+}
+#cartLogo:hover{
+  color: whitesmoke;
+}
+/* ------ End NavBar ------ */
+/* ------ Card Items ------ */
+#item-container{
+  margin: 3% 0%;
+}
+.titleSecond{
+  font-family: 'Mali', cursive;
+  font-weight: 800;
+  font-size: 50px;
+  margin: 3% 0%;
+  text-shadow: 2px 2px 3px grey;
+}
+#titleForm{
+  font-family: 'Mali', cursive;
+  font-weight: 800;
+  font-size: 35px;
+  margin: 3% 0%;
+  width: 80%;
+  text-shadow: 2px 2px 3px grey;
+}
+.titleSuccess{
+  font-family: 'Mali', cursive;
+  font-weight: 800;
+  font-size: 35px;
+  text-shadow: 2px 2px 3px grey;
+}
+.gridItems{
+  margin: 5% 0%;
+  display: flex;
+  justify-content: center;
+}
+.cardItems{
+  width: 20rem;
+  height: 30rem;
+  margin: 4% 0%;
+  padding: 2% 0px;
+  display: flex;
+  flex-flow: column wrap;
+  background-color: whitesmoke;
+  border: 1px solid #000000;
+  border-radius: 5px 5px 5px 5px;
+  box-shadow: 0px 0px 10px 2px rgba(0,0,0,1);
+}
+.cardImage{
+  width: 95%;
+  height: 98%;
+}
+.cardTitle{
+  font-family: 'Concert One', cursive;
+  text-align: center;
+  text-shadow: 2px 2px 3px grey;
+  text-decoration: none;
+  letter-spacing: 2px;
+  color: #020303de;
+  font-size: 22px;
+  transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out;
+}
+.cardTitle:hover{
+  transform: scale(1px);
+  color: #d2bccb;
+  text-shadow: 2px 2px 3px black;
+}
+.cardDescription{
+  margin: 8% 0%;
+  font-family: 'Mali', cursive;
+  font-weight: 400;
+  text-align: center;
+  color: black;
+  padding: 0px 6%;
+  font-size: 15px;
+  letter-spacing: 2.5px;
+  text-shadow: 0px 1px 2px black;
+}
+.cardButton{
+  width: 40%;
+  padding: 4px 0px;
+  text-decoration: none;
+  background-color: inherit;
+  border-color: #d2bccb;
+  border-width: 1px;
+  border-radius: 4px;
+  border-style: solid;
+}
+.cardButton:hover{
+  background-color: #d2bccb;
+}
+.cardButton > a{
+  font-family: 'Mali', cursive;
+  color: #020303de;
+  text-transform: uppercase;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-decoration: none;
+}
+.cardButton > a:hover{
+  color: black;
+}
+/* ------ End Card Items ------ */
+/* ------ Detail Item ------ */
+#detailContainer{
+  display: inline-flex;
+  width: 97%;
+  height: 100vh;
+  margin: 5% 0%;
+  background-color: whitesmoke;
+}
+.contImage{
+  height: 100%;
+}
+.detailImage{
+  height: 95%;
+  width: 90%;
+  padding-top: 4%;
+}
+.contInfo{
+  margin: 2% 0%;
+}
+.detailTitle{
+  font-family: 'Mali', cursive;
+  font-weight: 600;
+  font-size: 50px;
+  color: #b28ba6;
+  text-shadow: 2px 2px 2px black;
+}
+.detailDescription{
+  font-family: 'Comfortaa', cursive;
+  font-weight: 500;
+  font-style: italic;
+  font-size:20px;
+  text-shadow: 1px 1px 2px grey;
+  margin: 5% 5%;
+}
+.detailInfo{
+  font-family: 'Mali', cursive;
+  font-weight: bold;
+  font-size: 17px;
+  letter-spacing: 1px;
+  text-shadow: 1px 1px 2px grey;
+}
+.divText{
+  display: flex;
+  justify-content: space-evenly;
+}
+.divButton{
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  margin-bottom: 0.5em;
+}
+.detailButton{
+  margin:0% 1%;
+  height: 100%
+}
+.detailButton:hover{
+  background-color:#b28ba6
+}
+.detailButton > a{
+  text-decoration: none;
+  font-weight: bold;
+  color: #020303de;
+}
+.detailButton > a:hover{
+  color: #020303de;
+}
+/* ------ End Detail ------ */
+/* ------ Cart ------ */
+#cartContainer{
+  align-items: center;
+  background-color: whitesmoke;
+  width: 90vw;
+}
+#emptyCart{
+  width: 90vw;
+  height: 80vh;
+  background-color: whitesmoke;
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+}
+#emptyButton:hover{
+  background-color: #b28ba6;
+}
+#pSel{
+  display: flex;
+}
+.cartSelec{
+  align-self: baseline;
+  padding: 1em 0px;
+  font-family: 'Indie Flower', cursive;
+  font-weight: bold;
+  font-size: 20px;
+  
+}
+.gButtons{
+  display: flex;
+  justify-content: space-evenly;
+  padding-top: 1em;
+}
+#cartTotal{
+  font-family: 'Indie Flower', cursive;
+  font-weight: bold;
+  font-size: 20px;
+  text-shadow: 1px 1px 2px grey;
+  text-transform: uppercase;
+  color: #b28ba6;
+}
+.cartButton{
+  font-family: 'Indie Flower', cursive;
+  font-weight: bold;
+  font-size: 15px;
+}
+.cartButton:hover{
+  background-color:#b28ba6 ;
+}
+#formContainer{
+  height: 80vh;
+  width: 90vw;
+  background-color: whitesmoke;
+}
+#cartForm{
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  align-items: center;
+}
+.formInfo{
+  padding: 1em 0%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: 'Mali', cursive;
+  font-weight: bold;
+  font-size: 16px;
+}
+.formInfo>button:hover{
+  background-color:#b28ba6
+}
+#succesContainer{
+  height: 90vh;
+  width: 90%;
+  font-family: 'Comfortaa', cursive;
+  font-weight: bold;
+  font-size: 20px;
+  background-color: whitesmoke;
+}
+/* ------ End Cart ------ */
+/* ------ navBar ------ */
+
 #box-list{
   width: 60%;
 }
-.navList{
-  list-style: none;
+.circularProgress{
   display: flex;
-  flex-flow: row wrap;
-  justify-content: space-evenly;
-  margin: 7% 0%;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+  height: 50vh;
 }
-.nav-logoBoutique{
-  width: 150px;
-  height: 150px;
-}
+
 #cart-button{
   border:none;
   display:flex
@@ -44,11 +353,7 @@ a{
 #contador{
   text-align: center;
 }
-#item-container{
-  display: flex;
-  flex-flow: row nowrap;
-  justify-content: space-evenly;
-}
+
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;

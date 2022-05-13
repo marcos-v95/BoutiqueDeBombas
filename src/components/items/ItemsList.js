@@ -1,5 +1,7 @@
 // React
 import React,{useState,useEffect} from "react";
+// Material Ui
+import {CircularProgress} from '@material-ui/core'; 
 // Components
 import Items from './Items'; 
 // Firebase
@@ -7,8 +9,8 @@ import dataBase from '../../utils/firebaseConfig';
 import {collection,getDocs} from 'firebase/firestore';
 
 export default function ItemsList(){
-
   const[products,setProducts]=useState([])
+  const[loader,setLoader]=useState() //Loader
 
   const getProducts= async ()=>{
     const collectionRef= collection(dataBase,'products'); //collection 'products' from firestore
@@ -18,15 +20,29 @@ export default function ItemsList(){
       product.id=doc.id
       return (product)
     })
+    setLoader(false)
     return (listProducts)
   }
   useEffect (()=>{
-    getProducts().then((data)=>{
-      setProducts(data)
-    })
+    setTimeout(() => {
+      getProducts().then((data)=>{
+        setProducts(data)
+      })
+    }, 2000);
+    setLoader(true)
   },[])
   
   return(
-   <Items products={products}/>
+    <>
+      {loader?(
+          <div className="circularProgress">
+            <p>Cargando contenido ...</p>
+            <CircularProgress />
+          </div>
+        ):(
+        <Items products={products}/>)
+      }
+    </>
+   
    )
 }

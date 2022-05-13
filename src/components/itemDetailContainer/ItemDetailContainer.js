@@ -1,6 +1,8 @@
 // React
 import React,{useState,useEffect} from "react";
 import { useParams } from "react-router-dom";
+// Material Ui
+import {CircularProgress} from '@material-ui/core'; 
 // Item Detail
 import ItemDetail from "../itemDetail/itemDetail";
 // Firebase
@@ -12,26 +14,37 @@ function ItemDetailContainer (){
   
   const {id}=useParams();
   const [product,setProduct]=useState({})
+  const [loader,setLoader]=useState(false) //----- loader -----
 
   const filterProductById= async ()=>{
     const docRef= doc(dataBase,'products', id);
     const docSnap=await getDoc(docRef);
 
     if (docSnap.exists()){
-      console.log("docInfo",docSnap.data())
       let product=docSnap.data();
       product.id=docSnap.id;
       setProduct(product)
+      setLoader(false)
     }
     
   }
 
   useEffect(()=>{
-    filterProductById()},[id]
-  )
+    setLoader(true)
+    setTimeout(() => {filterProductById()}, 1500)
+  },[id])
   
   return(
-    <ItemDetail productDetail={product}/>
+    <>
+      {loader?(
+        <div className="circularProgress">
+          <p>Cargando contenido ...</p>
+          <CircularProgress />
+        </div>
+      ):(
+        <ItemDetail productDetail={product}/>
+      )}
+    </>
   )
 }
 export default ItemDetailContainer;

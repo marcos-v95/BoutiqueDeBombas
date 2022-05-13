@@ -25,6 +25,7 @@ function CartProvider ({children}){
 
   function clearCart(){
     setCartProducts([])
+    setTotalPrice(0)
   }
 
   function removeItem(cartProduct){

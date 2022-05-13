@@ -6,7 +6,7 @@ import ItemsList from '../items/ItemsList';
 function ItemListContainer(){
   return(
     <div>
-      <h2>Lista de productos</h2>
+      <h2 className='titleSecond'>Nuestros Productos!</h2>
       <ItemsList/>
     </div>
   )

@@ -1,52 +1,54 @@
 // React
 import React,{useContext} from 'react';
 import {Link} from 'react-router-dom';
-// logo 
-import logoBoutique from '../../assets/images/logoBoutique.jpeg';
 // Cart widget
 import CartWidget from '../cartWidget/CartWidget';
 // Cart context
 import CartContext from '../../context/CartContext';
+// Bootstrap
+import { Navbar,Container,Nav,Dropdown } from 'react-bootstrap';
+// logo 
+import logoBoutique from '../../assets/images/logo.png';
+
 
 function NavBar(){
   const {cartProducts}=useContext(CartContext)
+  
   return (
-    <nav className="navBar">
-      <div>
-        <Link to={'/'}><img src={logoBoutique} className='nav-logoBoutique' alt='logo'/></Link>
-      </div>
-      <div id='box-list'>
-        <ul className='navList'>
-          <li>
-            <button className='nav-button'><Link to={'/'}>Home</Link></button>
-          </li>
-          <li>
-            <button className='nav-button'><Link to={'/nosotros'}>Nosotros</Link></button>
-          </li>
-          <li>
-            <button className='nav-button'><Link to={'/tienda'}>Tienda</Link></button>
-            <ul>
-              <li><button className='nav-button'> <Link to={'tienda/pasteleria'}>pasteleria</Link></button></li>
-              <li><button className='nav-button'> <Link to={'tienda/postres'}>postres</Link></button></li>
-            </ul>
-          </li>
-          <li>
-            <button className='nav-button'><Link to={'/galeria'}>Galeria</Link></button>
-          </li>
-          <li>
-            <button className='nav-button'><Link to={'/contacto'}>Contacto</Link></button>
-          </li>
+    <Navbar expand="lg" id='navContainer'>
+      <Container>
+        <Navbar.Brand><Link to={'/'}><img src={logoBoutique} className='nav-logoBoutique' alt='logo'/></Link></Navbar.Brand>
+        <Navbar.Collapse>
+          <Nav className="navBar">
+            <Nav.Link href="/" bsPrefix="navList">Home</Nav.Link>
+            <Nav.Link href="/nosotros" bsPrefix="navList">Nosotros</Nav.Link>
+            <Nav.Link href="/galeria" bsPrefix="navList">Galeria</Nav.Link>
+            <Nav.Link href="/contacto" bsPrefix="navList">Contacto</Nav.Link>
+            
+            <Dropdown id='dropContainer'>
+              <Nav.Link href="/tienda" bsPrefix="navList">Tienda</Nav.Link>
+              <Dropdown.Toggle split variant="default" id="dropdown-split-basic" />
+              <Dropdown.Menu id="dropMenu">
+                <Link to={"tienda/petitFlour"} className="dropList">PetitFlour</Link>
+                <Link to={"tienda/tortas"} className="dropList">Tortas</Link>
+                <Link to={"tienda/budines"} className="dropList">Budines</Link>
+              </Dropdown.Menu>
+            </Dropdown>
+          </Nav>
+        </Navbar.Collapse>
+        <div >
+          <Navbar.Toggle aria-controls="basic-navbar-nav" />
           {(cartProducts.length>0) && 
-            <li>
-              <button id='cart-button'>
-                <Link to={'/cart'}><CartWidget/></Link>
-                <p>{cartProducts.length}</p>
-              </button>
-            </li>
+            <div  id='cartWidget'>
+              <Link to={'/cart'} >
+                <CartWidget />
+              </Link>
+              <p>{cartProducts.length}</p>
+            </div>
           }
-        </ul>
-      </div>
-    </nav>
+        </div>
+      </Container>
+    </Navbar>
   )
 }
 

@@ -17,6 +17,8 @@ import ContactoPage from './pages/Contacto';
 import GaleriaPage from './pages/Galeria';
 // Context
 import {CartProvider} from './context/CartContext'
+// React bootstrap stylesheet
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
   return (
